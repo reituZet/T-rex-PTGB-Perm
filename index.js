@@ -159,14 +159,14 @@
      */
     Runner.spriteDefinition = {
         LDPI: {
-            CACTUS_LARGE: { x: 300, y: 2 },
-            CACTUS_SMALL: { x: 242, y: 2 },
+            CACTUS_LARGE: { x: 320, y: 3 },
+            CACTUS_SMALL: { x: 241, y: 7 },
             CLOUD: { x: 99, y: 2 },
             HORIZON: { x: 2, y: 54 },
-            MOON: { x: 382, y: 2 },
+            MOON: { x: 402, y: 4 },
             PTERODACTYL: { x: 147, y: 2 },
             RESTART: { x: 2, y: 2 },
-            TEXT_SPRITE: { x: 558, y: 5 },
+            TEXT_SPRITE: { x: 558, y: 7 },
             TREX: { x: 753, y: 2 },
             STAR: { x: 545, y: 2 }
         },
@@ -1267,13 +1267,13 @@
      * Coefficient for calculating the maximum gap.
      * @const
      */
-    Obstacle.MAX_GAP_COEFFICIENT = 1.5;
+    Obstacle.MAX_GAP_COEFFICIENT = 3.2;
 
     /**
      * Maximum obstacle grouping count.
      * @const
      */
-    Obstacle.MAX_OBSTACLE_LENGTH = 3,
+    Obstacle.MAX_OBSTACLE_LENGTH = 1,
 
 
         Obstacle.prototype = {
@@ -1431,8 +1431,8 @@
     Obstacle.types = [
         {
             type: 'CACTUS_SMALL',
-            width: 10,
-            height: 31,
+            width: 35,
+            height: 33,
             yPos: 110,
             multipleSpeed: 4,
             minGap: 120,
@@ -1445,16 +1445,16 @@
         },
         {
             type: 'CACTUS_LARGE',
-            width: 14,
-            height: 46,
-            yPos: 100,
+            width: 31,
+            height: 52,
+            yPos: 92,
             multipleSpeed: 7,
-            minGap: 120,
+            minGap: 130,
             minSpeed: 0,
             collisionBoxes: [
-                new CollisionBox(0, 0, 14, 46),
-                new CollisionBox(0, 0, 14, 46),
-                new CollisionBox(0, 0, 14, 46),
+                new CollisionBox(0, 0, 16, 32),
+                new CollisionBox(0, 0, 16, 32),
+                new CollisionBox(0, 0, 16, 32),
             ]
         },
         {
