@@ -1533,7 +1533,7 @@
         SPRITE_WIDTH: 345,
         START_X_POS: 60,
         WIDTH: 69,
-        WIDTH_DUCK: 69
+        WIDTH_DUCK: 73
     };
 
 
