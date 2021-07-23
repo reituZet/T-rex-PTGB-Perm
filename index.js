@@ -87,7 +87,7 @@
     var FPS = 60;
 
     /** @const */
-    var IS_HIDPI = window.devicePixelRatio > 1;
+    var IS_HIDPI = window.devicePixelRatio = 1;
 
     /** @const */
     var IS_IOS = /iPad|iPhone|iPod/.test(window.navigator.platform);
@@ -171,16 +171,16 @@
             STAR: { x: 545, y: 2 }
         },
         HDPI: {
-            CACTUS_LARGE: { x: 652, y: 2 },
-            CACTUS_SMALL: { x: 446, y: 2 },
-            CLOUD: { x: 166, y: 2 },
-            HORIZON: { x: 2, y: 104 },
-            MOON: { x: 954, y: 2 },
-            PTERODACTYL: { x: 260, y: 2 },
+            CACTUS_LARGE: { x: 320, y: 3 },
+            CACTUS_SMALL: { x: 241, y: 7 },
+            CLOUD: { x: 99, y: 2 },
+            HORIZON: { x: 2, y: 54 },
+            MOON: { x: 402, y: 4 },
+            PTERODACTYL: { x: 147, y: 2 },
             RESTART: { x: 2, y: 2 },
-            TEXT_SPRITE: { x: 1294, y: 2 },
-            TREX: { x: 1678, y: 2 },
-            STAR: { x: 1276, y: 2 }
+            TEXT_SPRITE: { x: 558, y: 7 },
+            TREX: { x: 753, y: 2 },
+            STAR: { x: 545, y: 2 }
         }
     };
 
@@ -287,7 +287,7 @@
          */
         loadImages: function () {
             if (IS_HIDPI) {
-                Runner.imageSprite = document.getElementById('offline-resources-2x');
+                Runner.imageSprite = document.getElementById('offline-resources-1x');
                 this.spriteDef = Runner.spriteDefinition.HDPI;
             } else {
                 Runner.imageSprite = document.getElementById('offline-resources-1x');
@@ -777,7 +777,7 @@
             this.crashed = true;
             this.distanceMeter.acheivement = false;
 
-            this.tRex.update(100, Trex.status.CRASHED);
+            this.tRex.update(0, 0, Trex.status.CRASHED);
 
             // Game over panel.
             if (!this.gameOverPanel) {
@@ -1065,12 +1065,12 @@
             var restartTargetY = this.canvasDimensions.HEIGHT / 2;
 
             if (IS_HIDPI) {
-                textSourceY *= 2;
-                textSourceX *= 2;
-                textSourceWidth *= 2;
-                textSourceHeight *= 2;
-                restartSourceWidth *= 2;
-                restartSourceHeight *= 2;
+                textSourceY *= 1;
+                textSourceX *= 1;
+                textSourceWidth *= 1;
+                textSourceHeight *= 1;
+                restartSourceWidth *= 1;
+                restartSourceHeight *= 1;
             }
 
             textSourceX += this.textImgPos.x;
@@ -1333,8 +1333,8 @@
                 var sourceHeight = this.typeConfig.height;
 
                 if (IS_HIDPI) {
-                    sourceWidth = sourceWidth * 2;
-                    sourceHeight = sourceHeight * 2;
+                    sourceWidth = sourceWidth * 1;
+                    sourceHeight = sourceHeight * 1;
                 }
 
                 // X position in sprite.
@@ -1447,7 +1447,7 @@
             type: 'CACTUS_LARGE',
             width: 31,
             height: 52,
-            yPos: 92,
+            yPos: 91,
             multipleSpeed: 7,
             minGap: 130,
             minSpeed: 0,
@@ -1684,10 +1684,10 @@
             var sourceHeight = this.config.HEIGHT;
 
             if (IS_HIDPI) {
-                sourceX *= 2;
-                sourceY *= 2;
-                sourceWidth *= 2;
-                sourceHeight *= 2;
+                sourceX *= 1;
+                sourceY *= 1;
+                sourceWidth *= 1;
+                sourceHeight *= 1;
             }
 
             // Adjustments for sprite sheet position.
@@ -1878,7 +1878,7 @@
      * @enum {number}
      */
     DistanceMeter.dimensions = {
-        WIDTH: 11,
+        WIDTH: 10,
         HEIGHT: 13,
         DEST_WIDTH: 12
     };
@@ -1961,9 +1961,9 @@
 
             // For high DPI we 2x source values.
             if (IS_HIDPI) {
-                sourceWidth *= 2;
-                sourceHeight *= 2;
-                sourceX *= 2;
+                sourceWidth *= 1;
+                sourceHeight *= 1;
+                sourceX *= 1;
             }
 
             sourceX += this.spritePos.x;
@@ -2157,8 +2157,8 @@
             var sourceHeight = Cloud.config.HEIGHT;
 
             if (IS_HIDPI) {
-                sourceWidth = sourceWidth * 2;
-                sourceHeight = sourceHeight * 2;
+                sourceWidth = sourceWidth * 1;
+                sourceHeight = sourceHeight * 1;
             }
 
             this.canvasCtx.drawImage(Runner.imageSprite, this.spritePos.x,
@@ -2292,11 +2292,11 @@
             var starSourceX = Runner.spriteDefinition.LDPI.STAR.x;
 
             if (IS_HIDPI) {
-                moonSourceWidth *= 2;
-                moonSourceHeight *= 2;
+                moonSourceWidth *= 1;
+                moonSourceHeight *= 1;
                 moonSourceX = this.spritePos.x +
-                    (NightMode.phases[this.currentPhase] * 2);
-                starSize *= 2;
+                    (NightMode.phases[this.currentPhase] * 1);
+                starSize *= 1;
                 starSourceX = Runner.spriteDefinition.HDPI.STAR.x;
             }
 
@@ -2335,7 +2335,7 @@
 
                 if (IS_HIDPI) {
                     this.stars[i].sourceY = Runner.spriteDefinition.HDPI.STAR.y +
-                        NightMode.config.STAR_SIZE * 2 * i;
+                        NightMode.config.STAR_SIZE * 1 * i;
                 } else {
                     this.stars[i].sourceY = Runner.spriteDefinition.LDPI.STAR.y +
                         NightMode.config.STAR_SIZE * i;
@@ -2399,7 +2399,7 @@
                 if (IS_HIDPI) {
                     if (dimension != 'YPOS') {
                         this.sourceDimensions[dimension] =
-                            HorizonLine.dimensions[dimension] * 2;
+                            HorizonLine.dimensions[dimension] * 1;
                     }
                 } else {
                     this.sourceDimensions[dimension] =
